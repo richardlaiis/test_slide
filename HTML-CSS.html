@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NTUOSC | 從零開始 HTML、CSS</title>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/beige.css" />
+    <link rel="stylesheet" href="./css/atom-one-light.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/notosanstc.css" />
+    <style>
+        .reveal { font-family: "Lato", "Noto Sans CJK TC", "Noto Sans TC", sans-serif; }
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            font-family: "League Gothic", Impact, "Noto Sans CJK TC", "Noto Sans TC", sans-serif;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal"><main class="slides">
+    <section>
+        <section>
+            <h1>從 0 開始 HTML、CSS</h1>
+        </section>
+        <section>
+            <h2>講師</h2>
+            <p style="display:inline-block;vertical-align:middle;padding-left:1.5em;margin-right:1em">
+                <img src="./img/Avatar.png" style="width:6em;border-radius:50%" /><br />
+                <img src="./img/Logo/FB.png"
+                     style="width:.8em;margin:0 8px;vertical-align:middle;
+                            background:none;border:none;box-shadow:none" />
+                <a href="https://www.facebook.com/yuren.pan.tw"
+                   style="font-size:2rem">Yu-Ren Pan</a><br />
+                <img src="./img/Logo/GitHub.png"
+                     style="width:.8em;margin:0 8px;vertical-align:middle;
+                            background:none;border:none;box-shadow:none" />
+                <a href="https://github.com/YuRen-tw"
+                   style="font-size:2rem">@YuRen-tw</a><br />
+                <img src="./img/Logo/CodePen.png"
+                     style="width:.8em;margin:0 8px;vertical-align:middle;
+                            background:none;border:none;box-shadow:none" />
+                <a href="https://codepen.io/YuRen/"
+                   style="font-size:2rem">@YuRen</a><br />
+            </p>
+            <div style="display:inline-block;vertical-align:middle">
+                <style>
+                    .Tree {
+                        font-size: 1.7rem !important;
+                        text-align: left;
+                        margin-top: 1rem !important;
+                    }
+                    .Tree *, .Tree *::before { box-sizing: border-box; }
+                    .Tree .branch {
+                        padding-left: 2em !important;
+                        position: relative;
+                        overflow: hidden;
+                        font-size: .75em;
+                    }
+                    .Tree .branch::before {
+                        display: block; content: '';
+                        width: calc(1em - 1px); height: 100%;
+                        position: absolute;
+                        left: calc(1em - 1px);
+                        border: 0 solid transparent !important;
+                    }
+                    .Tree .branch:not(:last-child)::before { border-left: 2px solid #333 !important; }
+                    .Tree .item {
+                        position: relative;
+                        padding-left: 4px !important;
+                    }
+                    .Tree .item::before {
+                        display: block; content: '';
+                        width: calc(1em + 1px); height: 100%;
+                        position: absolute;
+                        left: calc(-1em + -1px); bottom: calc(50% - 1px);
+                        border: 0 solid transparent !important;
+                        border-left: 2px solid #333 !important;
+                        border-bottom: 2px solid #333 !important;
+                    }
+                    .Tree > .item::before { border-color: transparent !important; }
+                </style>                
+                <div class="Tree">
+                    <div class="item">臺北市立大學</div>
+                    <div class="branch"> <div class="item">數學系　一年級</div> </div>
+                </div>
+                <div class="Tree">
+                    <div class="item">國立臺灣師大附中</div>
+                    <div class="branch"> <div class="item">1365 班（二三年級）</div> </div>
+                    <div class="branch"> <div class="item">1356 班（一年級）</div> </div>
+                    <div class="branch">
+                        <div class="item">電子計算機研究社 第三十六屆</div>
+                        <div class="branch"> <div class="item">美工</div> </div>
+                        <div class="branch"> <div class="item">學術（Python、HTML 教學）</div> </div>
+                        <div class="branch"> <div class="item">公關</div> </div>
+                    </div>
+                    <div class="branch">
+                        <div class="item">暑期新生資訊營</div>
+                        <div class="branch"> <div class="item">2016年：課程講師（網頁設計—CSS）</div> </div>
+                        <div class="branch"> <div class="item">2014年：教學組長</div> </div>
+                    </div>
+                </div>                
+                <div class="Tree">
+                    <div class="item">社團</div>
+                    <div class="branch"> <div class="item">開源社（國立臺灣大學）</div> </div>
+                    <div class="branch">
+                        <div class="item">百五級高中電資社團（聯）</div>
+                        <div class="branch"> <div class="item">師大附中 電算社</div> </div>
+                        <div class="branch"> <div class="item">2014年 電資十校聯合迎新</div> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section>
+        <h2>前端</h2>
+        <p>
+            訪客可以接觸到的、看到的畫面
+        </p>
+        <p>
+            <span class="fragment current-visible" data-fragment-index="3">互動 － JavaScript</span><br />
+            <span class="fragment" data-fragment-index="2">樣式 － CSS</span><br />
+            <span class="fragment" data-fragment-index="1">結構 － HTML</span><br />
+        </p>
+    </section>
+    <section>
+        <section>
+            <h2>文字編輯器</h2>
+            <ul style="width:10em">
+                <li class="fragment" data-fragment-index="2">Notepad（記事本）</li>
+                <li>Notepad++</li>
+                <li>Sublime Text</li>
+                <li>Brackets</li>
+                <li>VIM</li>
+                <li class="fragment" data-fragment-index="1">...</li>
+            </ul>
+            <blockquote class="fragment" data-fragment-index="2"
+                        style="font-size:.75em;font-weight:400;font-style:normal;
+                               box-shadow:0px 0px 8px rgba(0,0,0,.5),0px 0px 16px rgba(0,0,0,.2);">
+                「真男人都用 Notepad，沒有++」（子期，2015）
+            </blockquote>
+        </section>
+        <section>
+            <h2>
+                <a href="http://codepen.io/">
+                    <img src="./img/Logo/CodePenLarge.png"
+                         style="max-width:80vw;background:none;border:none;box-shadow:none" />
+                </a>
+            </h2>
+            <p class="fragment" data-fragment-index="0">
+                前端世界的遊樂場
+            </p>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>HTML</h2>
+            <p>
+                <span class="fragment" data-fragment-index="1">HyperText Markup Language，超文本標籤語言</span><br />
+                <span class="fragment" data-fragment-index="2">由 W3C 定義和維護</span>
+            </p>
+            <aside class="fragment" data-fragment-index="2" style="font-size:.75em;font-weight:300">
+                W3C：World Wide Web Consortium，全球資訊網協會
+            </aside>
+        </section>
+        <section>
+            <h2>夏夜</h2>
+            <p>
+                <span class="fragment" data-fragment-index="2" style="color:red">轉化</span><br />
+                來了！來了！從山坡上
+                <span class="fragment" data-fragment-index="1" style="color:red">(</span>
+                輕輕地爬下來
+                <span class="fragment" data-fragment-index="1" style="color:red">)</span>
+                了。
+            </p>
+        </section>
+        <section>
+            <h2>超連結</h2>
+            <p>
+                Google 首頁<a href="https://www.google.com.tw/">請點這裡</a> 。
+            </p>
+            <p class="fragment" data-fragment-index="1">
+                <span style="color:red;font-size:.7em">網址="https://www.google.com.tw/"</span><br />
+                Google 首頁
+                <span style="color:red">(</span>
+                請點這裡
+                <span style="color:red">)</span>
+                 。
+            </p>
+            <p class="fragment" data-fragment-index="2" style="font-size:.7em">
+                Google 首頁
+                <span style="color:red">[超連結 網址="https://www.google.com.tw/"](</span>
+                請點這裡
+                <span style="color:red">)</span>
+                 。
+            </p>
+            <pre class="fragment" data-fragment-index="3" style="font-size:.7em"><code data-trim data-noescape class="html">
+HTML:
+Google 首頁&lt;a href="https://www.google.com.tw/"&gt;請點這裡&lt;/a&gt;。
+            </code></pre>
+        </section>
+    </section>
+    <section>
+        <h2>HTML 基本結構</h2>
+        <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;元素的名稱 屬性="屬性的值"&gt; 元素的內容 &lt;/元素的名稱&gt;
+&lt;    起   始   標   籤    &gt;           &lt; 終止 標籤 &gt;
+&lt;               H  T  M  L  元  素               &gt;
+        </code></pre>
+        <pre class="fragment" data-fragment-index="1" style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;a href="https://www.google.com.tw/"&gt;Google 首頁&lt;/a&gt;
+        </code></pre>
+        <pre class="fragment" data-fragment-index="2" style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;h1&gt;HTML 基本結構&lt;/h1&gt;
+        </code></pre>
+        <pre class="fragment" data-fragment-index="3" style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;img src="./img/PPAP.png" /&gt;
+        </code></pre>
+        <img src="./img/PPAP.png" class="fragment" data-fragment-index="4" 
+             style="margin:0;height:7em;background:none;border:none;
+                    box-shadow:0px 0px 8px rgba(0,0,0,.5),0px 0px 16px rgba(0,0,0,.2)"/>
+    </section>
+    <section>
+        <section>
+            <h2>網頁的 HTML 基本架構</h2>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        
+        網頁的各種資訊
+        
+    &lt;/head&gt;
+    &lt;body&gt;
+        
+        網頁的內容
+        
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+        </section>
+        <section>
+            <h2>head 元素</h2>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;head&gt;
+    &lt;!-- 網頁的各種資訊 --&gt;
+    
+    &lt;title&gt;NTUOSC | 從零開始 HTML、CSS&lt;/title&gt;
+      &lt;!-- title 元素：網頁的標題名稱 --&gt;
+      
+    &lt;meta charset="utf-8" /&gt;
+      &lt;!-- meta 元素：一些網頁資訊
+             其中 charset 用來宣告網頁使用的編碼 --&gt;
+&lt;/head&gt;
+            </code></pre>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>行內元素</h2>
+            <div class="fragment" data-fragment-index="1">
+                超連結
+                <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;a href="URL"&gt; 點這邊 &lt;/a&gt;
+                </code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="2">
+                圖片
+                <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;img src="URL" /&gt;
+                </code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+                換行
+                <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;br /&gt;
+                </code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="4">
+                毫無反應，就只是一個行內元素。
+                <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;span&gt; PPAP &lt;/span&gt;
+                </code></pre>
+            </div>
+        </section>
+        <section>
+            <h2>補充：URL 的相對路徑</h2>
+            <img src="./img/url.png" 
+             style="margin:0;background:none;border:none;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5),0px 0px 16px rgba(0,0,0,.2)"/>
+        </section>
+    </section>
+    <section>
+        <h2>區塊元素</h2>
+        <div class="fragment" data-fragment-index="1">
+            標題（第一級～第六級）
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;h1&gt; 中文圖書分類 &lt;/h1&gt;
+  &lt;h2&gt; 000 總類 &lt;/h2&gt;
+    &lt;h3&gt; 000 特藏 &lt;/h3&gt;
+  &lt;h2&gt; 100 哲學類 &lt;/h2&gt;
+    &lt;h3&gt; 100 哲學總論 &lt;/h3&gt;
+            </code></pre>
+        </div>
+        <div class="fragment" data-fragment-index="2">
+            段落 ※最小的區塊元素，裡面不能再有區塊
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;p&gt;
+    只有綠色的小河還醒著，&lt;br /&gt; 低聲地歌唱著溜過彎彎的小橋。
+&lt;/p&gt;
+            </code></pre>
+        </div>
+        <div class="fragment" data-fragment-index="3">
+            毫無反應，就只是一個區塊元素。
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;div&gt; PPAP &lt;/div&gt;
+            </code></pre>
+        </div>
+    </section>
+    <section>
+        <h2>通用屬性</h2>
+        <div class="fragment" data-fragment-index="1">
+            Class
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;div&gt; O &lt;/div&gt;
+&lt;div class="a"&gt; A &lt;/div&gt;
+&lt;div class="b"&gt; B &lt;/div&gt;
+&lt;div class="a b"&gt; AB &lt;/div&gt;
+            </code></pre>
+        </div>
+        <div class="fragment" data-fragment-index="2">
+            ID ※不得重複
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+&lt;span id="ntuosc"&gt; 臺灣大學開源社 &lt;/span&gt;
+            </code></pre>
+        </div>
+    </section>
+    <section>
+        <section>
+            <h2>CSS</h2>
+            <p>
+                <span class="fragment" data-fragment-index="1">Cascading Style Sheets，層疊樣式表</span><br />
+                <span class="fragment" data-fragment-index="2"><strong>為 HTML 文件添加樣式</strong>的電腦語言</span><br />
+                <span class="fragment" data-fragment-index="3">由 W3C 定義和維護</span><br />
+            </p>
+        </section>
+        <section>
+            <h2>在 HTML 引入 CSS</h2>
+            <p>
+                在 <code class="code">&lt;head&gt;</code> 中加入：
+            </p>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="html">
+    &lt;link href="URL" rel="stylesheet" /&gt;
+            </code></pre>
+            <ul class="fragment" data-fragment-index="1">
+                <li><code class="code">&lt;link&gt;</code>：用來連接外部的網頁資源</li>
+                <li>href 屬性：外部資源的 URL 位址</li>
+                <li>rel 屬性：relationship，資源與目前網頁的關係</li>
+            </ul>
+        </section>
+    </section>
+    <section>
+        <section>
+            <p>
+                瀏覽器加的預設樣式我們不要<br />
+                那就利用 CSS 修改樣式！
+            </p>
+            <p class="fragment" data-fragment-index="1">
+                去除超連結元素 <code class="code">&lt;a&gt;</code> 的底線
+            </p>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+a {
+    text-decoretion: none;
+}
+            </code></pre> 
+        </section>
+        <section>
+            <h2>基本結構</h2>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="css">
+選擇器 {
+    屬性: 屬性值;
+}
+            </code></pre>
+            <p>
+                瀏覽器<strong>由選擇器得知要修改的元素</strong><br />
+                <strong>大括號內</strong>設定各種樣式<br />
+                屬性代表要修改的樣式，<strong>以分號結束</strong><br />
+                屬性與其值之間<strong>以冒號隔開</strong>
+            </p>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>CSS 選擇器</h2>
+            <p>
+                所有符合選擇器描述的元素都會被選擇到
+            </p>
+        </section>
+        <section>
+            <h3>基本選擇器</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>名稱</th>
+                    <th>格式</th>
+                </tr>
+                <tr>
+                    <td>元素類型選擇器</td>
+                    <td>元素的名稱</td>
+                </tr>
+                <tr>
+                    <td>類別選擇器</td>
+                    <td><code>.</code> + class 屬性值</td>
+                </tr>
+                <tr>
+                    <td>ID選擇器</td>
+                    <td><code>#</code> + id 屬性值</td>
+                </tr>
+                <tr>
+                    <td>萬用選擇器</td>
+                    <td><code>*</code></td>
+                </tr>
+            </table></div>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="2"><code data-trim data-noescape class="css">
+body { ... }
+.my-class { ... }
+#ntuosc { ... }
+* { ... }
+            </code></pre>
+        </section>
+        <section>
+            <h3>基本選擇器的組合</h3>
+            <p>基本選擇器 A、B</p>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>功效</th>
+                    <th>格式</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td>一起選</td>
+                    <td><code class="code">A, B</code></td>
+                    <td>A、B都會選到</td>
+                </tr>
+                <tr>
+                    <td>加強選</td>
+                    <td><code class="code">AB</code>（相連）</td>
+                    <td>同時符合A、B</td>
+                </tr>
+                <tr>
+                    <td>選子孫</td>
+                    <td><code class="code">A B</code>（空格）</td>
+                    <td>A 的所有 B 後代</td>
+                </tr>
+                <tr>
+                    <td>選兒女</td>
+                    <td><code class="code">A &gt; B</code></td>
+                    <td>僅限 A 的 B 子代</td>
+                </tr>
+            </table></div>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="2"><code data-trim data-noescape class="css">
+#ntu, #osc { ... }
+img.cat { ... }
+#ntuosc .person { ... }
+body > div { ... }
+            </code></pre>
+        </section>
+        <section>
+            <h3>偽類別（pseudo class）</h3>
+            <p>
+                設定元素在特殊狀態下的樣式 <strong>都以冒號開頭</strong>
+            </p>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>偽類別</th>
+                    <th>狀態</th>
+                </tr>
+                <tr>
+                    <td><code class="code">:link</code></td>
+                    <td>超連接（沒點過）</td>
+                </tr>
+                <tr>
+                    <td><code class="code">:visited</code></td>
+                    <td>超連結（點過了）</td>
+                </tr>
+                <tr>
+                    <td><code class="code">:hover</code></td>
+                    <td>游標覆蓋</td>
+                </tr>
+                <tr>
+                    <td><code class="code">:active</code></td>
+                    <td>點擊中</td>
+                </tr>
+            </table></div>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="2"><code data-trim data-noescape class="css">
+a:link { ... }
+p a:visited { ... }
+div:hover { ... }
+#ntuosc:active { ... }
+            </code></pre>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>CSS 單位</h2>
+        </section>
+        <section>
+            <h3>長度單位</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>分類</th>
+                    <th>單位</th>
+                    <th>名稱</th>
+                    <th>說明</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">絕對長度</td>
+                    <td><code class="code">px</code></td>
+                    <td>CSS 像素</td>
+                    <td>和螢幕像素不同<br />= 1/96 in</td>
+                </tr>
+                <tr>
+                    <td><code class="code">pt</code></td>
+                    <td>點</td>
+                    <td>文書編輯器中常見<br />= 1/72 in</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code class="code">in</code></td>
+                    <td>英吋</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="border-bottom:none;">相對長度</td>
+                    <td><code class="code">em</code></td>
+                    <td>字體尺寸</td>
+                    <td>目前元素的字體大小</td>
+                </tr>
+                <tr>
+                    <td><code class="code">rem</code></td>
+                    <td>根 em</td>
+                    <td><code class="code">&lt;html&gt;</code> 的字體大小</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code class="code">%</code></td>
+                    <td>百分比</td>
+                    <td>不同屬性不同設定</td>
+                    <td></td>
+                </tr>
+            </table></div>
+        </section>
+    </section>
+    <section>
+        <h2>常見 CSS 屬性</h2>
+        <p>
+            CSS 的樣式屬性百百種<br />
+            不同的屬性專門處理不同的部分
+        </p>
+    </section>
+    <section>
+        <section>
+            <h2>文字設定</h2>
+        </section>
+        <section>
+            <h3>字型</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td rowspan="3"><code class="code">font-family</code></td>
+                    <td rowspan="3">字體</td>
+                    <td>字體名稱</td>
+                    <td>以逗號隔開多個<br />會一個個嘗試</td>
+                </tr>
+                <tr>
+                    <td><code class="code">serif</code></td>
+                    <td>襯線體</td>
+                </tr>
+                <tr>
+                    <td><code class="code">sans-serif</code></td>
+                    <td>無襯線體</td>
+                </tr>
+                <tr>
+                    <td><code class="code">font-size</code></td>
+                    <td>大小</td>
+                    <td colspan="2">各種長度值</td>
+                </tr>
+                <tr>
+                    <td><code class="code">font-weight</code></td>
+                    <td>字重</td>
+                    <td colspan="2"><code class="code">100 ~ 900</code></td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>其他樣式</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td rowspan="3"><code class="code">text-decoration</code></td>
+                    <td rowspan="3">文字裝飾</td>
+                    <td><code class="code">none</code></td>
+                    <td>無樣式</td>
+                </tr>
+                <tr>
+                    <td><code class="code">underline</code></td>
+                    <td>底線</td>
+                </tr>
+                <tr>
+                    <td><code class="code">line-through</code></td>
+                    <td>刪除線</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="border-bottom:none;"><code class="code">text-align</code></td>
+                    <td rowspan="3" style="border-bottom:none;">文字對齊</td>
+                    <td><code class="code">center</code></td>
+                    <td>置中</td>
+                </tr>
+                <tr>
+                    <td><code class="code">left</code></td>
+                    <td>置左</td>
+                </tr>
+                <tr>
+                    <td><code class="code">right</code></td>
+                    <td>置右</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="2"><code data-trim data-noescape class="css">
+body {
+    text-align: center;
+    font-family: "Noto Sans CJK TC", "微軟正黑體", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.strong {
+    font-weight: 700;
+}
+            </code></pre>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>顏色</h2>
+        </section>
+        <section>
+            <h3>顏色</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                </tr>
+                <tr>
+                    <td><code class="code">color</code></td>
+                    <td>主要顏色（文字）</td>
+                    <td rowspan="2" style="border-bottom:none;">各種顏色值</td>
+                </tr>
+                <tr>
+                    <td><code class="code">background-color</code></td>
+                    <td>背景顏色</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>顏色值</h3>
+            <p>
+                一般使用<strong> RGB （三原色光模型）</strong>
+            </p>
+            <div class="fragment" data-fragment-index="1"><table>
+                    <tr>
+                        <th colspan="2">分類</th>
+                        <th>寫法</th>
+                        <th>說明</th>
+                        <th>舉例</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">關鍵字</td>
+                        <td colspan="2">各種關鍵字</td>
+                        <td>gold</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">RGB</td>
+                        <td>16 進位</td>
+                        <td><code class="code">#rrggbb</code></td>
+                        <td>00~FF</td>
+                        <td><code class="code">#ffd700</code></td>
+                    </tr>
+                    <tr>
+                        <td>函數</td>
+                        <td><code class="code">rgb(r,g,b)</code></td>
+                        <td>0~255</td>
+                        <td><code class="code">rgb(255,215,0)</code></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">透明色</td>
+                        <td>transparent</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            除了透明色，其他三項的舉例都是同一個顏色。
+                            <span style="display:inline-block;vertical-align:bottom;
+                                         width:1.5em;height:1.5em;background-color:#ffd700;
+                                         box-shadow:0px 0px 8px rgba(0,0,0,.5),0px 0px 16px rgba(0,0,0,.2)"></span>
+                        </td>
+                    </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>補充：16 進位</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr> <th>10 進位</th> <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td> </tr>
+                <tr> <th>16 進位</th> <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td> </tr>
+            </table></div>
+            <div class="fragment" data-fragment-index="2"><table>
+                <tr> <th>10 進位</th> <td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td> </tr>
+                <tr> <th>16 進位</th> <td>a</td><td>b</td><td>c</td><td>d</td><td>e</td><td>f</td><td>10</td> </tr>
+            </table></div>
+            <div class="fragment" data-fragment-index="3"><table>
+                <tr> <th>10 進位</th> <td>16</td><td>32</td><td>80</td><td>153</td><td>154</td><td>255</td><td>256</td> </tr>
+                <tr> <th>16 進位</th> <td>10</td><td>20</td><td>50</td><td>99</td><td>9a</td><td>ff</td><td>100</td> </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+.magic-text {
+    background-color: #0285f4;
+    color: black;
+}
+.magic-text:hover {
+    background-color: #673a87;
+    color: white;
+}
+            </code></pre>
+            <style>
+                .magic-text {
+                    background-color: #0285f4;
+                    color: black;
+                }
+                .magic-text:hover {
+                    background-color: #673a87;
+                    color: white;
+                }
+            </style>
+            <span class="fragment magic-text" data-fragment-index="1">　MAGIC!　</span>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>尺寸</h2>
+        </section>
+        <section>
+            <h3>尺寸</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                </tr>
+                <tr>
+                    <td><code class="code">height</code></td>
+                    <td>高度</td>
+                    <td rowspan="6" style="border-bottom:none;">各種長度值</td>
+                </tr>
+                <tr>
+                    <td><code class="code">width</code></td>
+                    <td>寬度</td>
+                </tr>
+                <tr>
+                    <td><code class="code">max-height</code></td>
+                    <td>最大高度</td>
+                </tr>
+                <tr>
+                    <td><code class="code">max-width</code></td>
+                    <td>最大寬度</td>
+                </tr>
+                <tr>
+                    <td><code class="code">min-height</code></td>
+                    <td>最小高度</td>
+                </tr>
+                <tr>
+                    <td><code class="code">min-width</code></td>
+                    <td>最小寬度</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+.size-1 {
+    background-color: #0285f4;
+    width: 50px;
+    height: 50px;
+}
+.size-2 {
+    background-color: #34a853;
+    width: 100px;
+    height: 100px;
+}
+            </code></pre>
+            <style>
+                .size-1 {
+                    background-color: #0285f4;
+                    width: 50px;
+                    height: 50px;
+                }
+                .size-2 {
+                    background-color: #34a853;
+                    width: 100px;
+                    height: 100px;
+                }
+                .size {
+                    display: inline-block;
+                    margin: 0 8px !important;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5), 0px 0px 16px rgba(0,0,0,.2);
+                }
+            </style>
+            <div class="fragment size size-1" data-fragment-index="1"></div>
+            <div class="fragment size size-2" data-fragment-index="1"></div>
+        </section>
+    </section>
+    <section>
+        <h2>CSS 盒子模型（Box model）</h2>
+        <img src="./img/Box-model.png" style="max-height:50vh;border:none" class="fragment" data-fragment-index="1" />
+    </section>
+    <section>
+        <h2>上下左右的寫法</h2>
+        <p>
+            把四個邊的設定值寫在一起<strong>用空白分隔</strong><br />
+            順序是<strong>「上右下左」</strong>，可以簡化
+        </p>
+        <div class="fragment" data-fragment-index="1"><table>
+            <tr>
+                <th>寫法</th>
+                <th>上</th>
+                <th>右</th>
+                <th>下</th>
+                <th>左</th>
+                <th>描述</th>
+            </tr>
+            <tr>
+                <td><code class="code">a</code></td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>a</td>
+                <td>全部相同</td>
+            </tr>
+            <tr>
+                <td><code class="code">a b</code></td>
+                <td>a</td>
+                <td>b</td>
+                <td>a</td>
+                <td>b</td>
+                <td>上下一組，左右一組</td>
+            </tr>
+            <tr>
+                <td><code class="code">a b c</code></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>b</td>
+                <td>左右一組，上下分別設定</td>
+            </tr>
+            <tr>
+                <td><code class="code">a b c d</code></td>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+                <td>d</td>
+                <td>全部分別設定</td>
+            </tr>
+        </table></div>
+    </section>
+    <section>
+        <section>
+            <h2>邊框（Border）</h2>
+        </section>
+        <section>
+            <h3>邊框（Border）</h3>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td><code class="code">border-width</code></td>
+                    <td>邊框寬度</td>
+                    <td colspan="2">各種長度值</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><code class="code">border-style</code></td>
+                    <td rowspan="3">邊框樣式</td>
+                    <td><code class="code">solid</code></td>
+                    <td>實線</td>
+                </tr>
+                <tr>
+                    <td><code class="code">dashed</code></td>
+                    <td>虛線</td>
+                </tr>
+                <tr>
+                    <td><code class="code">none</code></td>
+                    <td>無邊框</td>
+                </tr>
+                <tr>
+                    <td><code class="code">border-color</code></td>
+                    <td>邊框顏色</td>
+                    <td colspan="2">各種顏色值</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+.border-1 {
+    border-style: solid;
+    border-color: #0285f4;
+    border-width: 10px;
+    
+}
+.border-2 {
+    border-style: dashed solid;
+    border-color: #ea4335 #34a853 #34a853;
+    border-width: 10px 15px;
+}
+            </code></pre>
+            <style>
+                .border-1 {
+                    border-style: solid !important;
+                    border-color: #0285f4 !important;
+                    border-width: 10px !important;
+                }
+                .border-2 {
+                    border-style: dashed solid !important;
+                    border-color: #ea4335 #34a853 #34a853 !important;
+                    border-width: 10px 15px !important;
+                }
+                .border {
+                    display: inline-block;
+                    width: 100px; height: 100px;
+                    margin: 0 8px !important;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5), 0px 0px 16px rgba(0,0,0,.2);
+                }
+            </style>
+            <div class="fragment border border-1" data-fragment-index="1"></div>
+            <div class="fragment border border-2" data-fragment-index="1"></div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>留白（Padding）<br/>與<br/>邊距（Margin）</h2>
+        </section>
+        <section>
+            <h3>留白（Padding）</h3>
+            <p>
+                <strong>留白在內</strong>
+            </p>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                </tr>
+                <tr>
+                    <td><code class="code">padding</code></td>
+                    <td>內部的留白</td>
+                    <td>各種長度值</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>邊距（Margin）</h3>
+            <p>
+                <strong>邊距在外</strong>
+            </p>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性</th>
+                    <th>描述</th>
+                    <th>屬性值</th>
+                </tr>
+                <tr>
+                    <td><code class="code">margin</code></td>
+                    <td>外部的邊距</td>
+                    <td>各種長度值（可負數）</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <p>
+                兩個元素的距離一般取決於它們設定的 Margin<br />
+                橫向元素間距是兩元素的 Margin 相加；<br />
+                縱向元素間距比較特別，同號時以絕對值最大的值為間距，異號時，則是兩元素 Margin 相加。
+            </p>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+.padding-1 {
+    padding: 1em;
+}
+.padding-2 {
+    padding: 0 3em;
+}
+            </code></pre>
+            <style>
+                .padding-1 {
+                    padding: 1em !important;
+                }
+                .padding-2 {
+                    padding: 0 3em !important;
+                }
+                .padding {
+                    display: inline-block;
+                    text-align: left;
+                    margin: 0 8px !important;
+                    border: 1px solid #0285f4 !important;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5), 0px 0px 16px rgba(0,0,0,.2);
+                }
+            </style>
+            <div class="fragment padding padding-1" data-fragment-index="1">NTUOSC</div>
+            <div class="fragment padding padding-2" data-fragment-index="1">NTUOSC</div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>再談盒子模型</h2>
+        </section>
+        <section>
+            <h3>Box Sizing</h3>
+            <p><code class="code">box-sizing</code> 屬性改變尺寸套用的位置</p>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td><code class="code">content-box</code></td>
+                    <td>預設，套用在內容</td>
+                </tr>
+                <tr>
+                    <td><code class="code">border-box</code></td>
+                    <td>套用在邊框</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>範例</h3>
+            <pre style="font-size:.7em" class="fragment" data-fragment-index="1"><code data-trim data-noescape class="css">
+.box {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border: 10px solid #34a853;
+}
+.content-box { box-sizing: content-box; }
+.border-box { box-sizing: border-box; }
+            </code></pre>
+            <style>
+                .content-box {
+                    box-sizing: content-box;
+                }
+                .border-box {
+                    box-sizing: border-box;
+                }
+                .box {
+                    padding: 10px !important;
+                    border: 10px solid #34a853 !important;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5), 0px 0px 16px rgba(0,0,0,.2);
+                }
+                .box-base {
+                    width: 100px; height: 100px;
+                    display: inline-block;
+                    margin: 0 8px !important;
+                    box-shadow: 0px 0px 8px rgba(0,0,0,.5), 0px 0px 16px rgba(0,0,0,.2);
+                    vertical-align: middle !important;
+                }
+            </style>
+            <div class="fragment box-base box content-box" data-fragment-index="1">C</div>
+            <div class="fragment box-base box border-box" data-fragment-index="1">B</div>
+            <div class="fragment box-base" data-fragment-index="1" style="background-color:#0285f4"></div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>Position 屬性</h2>
+            <p>
+                版面配置中威力強大的屬性<br />
+                決定元素擺放的定位方式，影響網頁排版
+            </p>
+        </section>
+        <section>
+            <h3>Position 屬性</h3>
+            <div><table>
+                <tr>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                    <th>如何看待上下左右屬性</th>
+                </tr>
+                <tr>
+                    <td><code class="code">static</code></td>
+                    <td>預設</td>
+                    <td>無視</td>
+                </tr>
+                <tr>
+                    <td><code class="code">relative</code></td>
+                    <td>相對定位</td>
+                    <td>以自己的原位為基準移動的距離</td>
+                </tr>
+                <tr>
+                    <td><code class="code">absolute</code></td>
+                    <td>絕對定位</td>
+                    <td>和父元素邊界的距離</td>
+                </tr>
+                <tr>
+                    <td><code class="code">fixed</code></td>
+                    <td>固定</td>
+                    <td>和視窗邊界的距離</td>
+                </tr>
+                <tr>
+                    <td colspan="3">上下左右屬性：<code class="code">top, bottom, right, left</code></td>
+                </tr>
+            </table></div>
+        </section>
+    </section>
+    <section>
+        <section>
+            <h2>Display 屬性</h2>
+            <p>
+                版面配置中威力強大的屬性<br />
+                每一個元素都有預設的 Display<br />
+                決定顯示模式，影響網頁排版
+            </p>
+        </section>
+        <section>
+            <h3>Display 屬性</h3>
+            <div><table>
+                <tr>
+                    <th>屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td><code class="code">block</code></td>
+                    <td>區塊，就像平常的<code class="code">&lt;div&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code class="code">inline</code></td>
+                    <td>行內，就像平常的<code class="code">&lt;span&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code class="code">inline-block</code></td>
+                    <td>行內區塊</td>
+                </tr>
+                <tr>
+                    <td><code class="code">none</code></td>
+                    <td>無，不會被顯示出來</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <p>
+                行內元素被限制在行裡面，<br />
+                <strong>上下的留白、邊距將會無效</strong>（行高不會改變）。
+            </p>
+            <p>
+                行內區塊元素整塊會像行內元素一樣跟著內文排列，<br />
+                但又可以像區塊元素一樣用盒子模型的形式設定各種尺寸。
+            </p>
+        </section>
+    </section>
+    <section>
+        <h2>附錄：推薦網站</h2>
+        <ul>
+            <li class="fragment" data-fragment-index="1">
+                <a href="https://developer.mozilla.org/zh-TW">MDN</a>：<br />
+                Mozilla（Firefox 瀏覽器的開發組織）的技術資訊中心，<br />
+                可以當作百科全書來查詢各種東西。
+            </li>
+            <li class="fragment" data-fragment-index="2">
+                <a href="http://caniuse.com">Can I Use</a>：<br />
+                關於各家瀏覽器的支援情形找它最快！<br />
+                （可以放棄舊版本 IE 瀏覽器，淘汰ＩＥ人人有責！）
+            </li>
+        </ul>
+    </section>
+    <section>
+        <section>
+            <h2>炫炫的陰影（Shadow）</h2>
+        </section>
+        <section>
+            <h3>文字陰影（Text shadow）</h3>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="css">
+text-shadow: off-x off-y blur color;
+            </code></pre>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>個別屬性</th>
+                    <th>個別屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>off-x</td>
+                    <td rowspan="3">各種長度值</td>
+                    <td>X 軸偏移量，正數往右</td>
+                </tr>
+                <tr>
+                    <td>off-y</td>
+                    <td>Y 軸偏移量，正數往下</td>
+                </tr>
+                <tr>
+                    <td>blur</td>
+                    <td>可不填。表示陰影模糊半徑</td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td>各種顏色值</td>
+                    <td>可不填。表示陰影的顏色</td>
+                </tr>
+            </table></div>
+        </section>
+        <section>
+            <h3>盒子陰影（Box shadow）</h3>
+            <pre style="font-size:.7em"><code data-trim data-noescape class="css">
+box-shadow: inset off-x off-y blur spread color;
+            </code></pre>
+            <div class="fragment" data-fragment-index="1"><table>
+                <tr>
+                    <th>個別屬性</th>
+                    <th>個別屬性值</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>inset</td>
+                    <td><code class="code">inset</code></td>
+                    <td>選填，表示陰影在盒子裡面</td>
+                </tr>
+                <tr>
+                    <td>off-x</td>
+                    <td rowspan="4">各種長度值</td>
+                    <td>X 軸偏移量，正數往右</td>
+                </tr>
+                <tr>
+                    <td>off-y</td>
+                    <td>Y 軸偏移量，正數往下</td>
+                </tr>
+                <tr>
+                    <td>blur</td>
+                    <td>可不填。表示陰影模糊半徑</td>
+                </tr>
+                <tr>
+                    <td>spread</td>
+                    <td>可不填。表示陰影擴張半徑</td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td>各種顏色值</td>
+                    <td>可不填。表示陰影的顏色</td>
+                </tr>
+            </table></div>
+        </section>
+    </section>
+</main></div>
+<script src="./js/head.min.js"></script>
+<script src="./js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            { src: './js/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: './js/zoom.js', async: true }
+        ]
+    });
+</script>
+</body>
+</html>
