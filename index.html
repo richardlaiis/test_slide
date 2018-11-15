@@ -512,44 +512,33 @@ div:hover { ... }
                 <tr>
                     <th>分類</th>
                     <th>單位</th>
-                    <th>名稱</th>
                     <th>說明</th>
                 </tr>
                 <tr>
-                    <td rowspan="3">絕對長度</td>
+                    <td rowspan="3">絕對</td>
                     <td><code class="code">px</code></td>
-                    <td>CSS 像素</td>
-                    <td>和螢幕像素不同<br />= 1/96 in</td>
+                    <td>= 1/96 in。CSS 像素 ≠ 螢幕像素</td>
                 </tr>
                 <tr>
                     <td><code class="code">pt</code></td>
-                    <td>點</td>
-                    <td>文書編輯器中常見<br />= 1/72 in</td>
-                    <td></td>
+                    <td>= 1/72 in。點，文書軟體中常見</td>
                 </tr>
                 <tr>
-                    <td><code class="code">in</code></td>
-                    <td>英吋</td>
-                    <td></td>
-                    <td></td>
+                    <td><code class="code">in／cm</code></td>
+                    <td>英吋／公分</td>
                 </tr>
                 <tr>
-                    <td rowspan="3" style="border-bottom:none;">相對長度</td>
-                    <td><code class="code">em</code></td>
-                    <td>字體尺寸</td>
-                    <td>目前元素的字體大小</td>
+                    <td rowspan="3" style="border-bottom:none;">相對</td>
+                    <td><code class="code">em／rem</code></td>
+                    <td>目前元素／<code class="code">&lt;html&gt;</code> 的字體大小</td>
                 </tr>
                 <tr>
-                    <td><code class="code">rem</code></td>
-                    <td>根 em</td>
-                    <td><code class="code">&lt;html&gt;</code> 的字體大小</td>
-                    <td></td>
+                    <td><code class="code">vh／vw</code></td>
+                    <td>= 1/100 的視窗高／寬</td>
                 </tr>
                 <tr>
                     <td><code class="code">%</code></td>
-                    <td>百分比</td>
-                    <td>不同屬性不同設定</td>
-                    <td></td>
+                    <td>百分比，依屬性有不同定義</td>
                 </tr>
             </table></div>
         </section>
@@ -669,12 +658,12 @@ a {
                 </tr>
                 <tr>
                     <td><code class="code">color</code></td>
-                    <td>主要顏色（文字）</td>
+                    <td>主要色（文字）</td>
                     <td rowspan="2" style="border-bottom:none;">各種顏色值</td>
                 </tr>
                 <tr>
                     <td><code class="code">background-color</code></td>
-                    <td>背景顏色</td>
+                    <td>背景色</td>
                 </tr>
             </table></div>
         </section>
@@ -969,12 +958,12 @@ a {
     </section>
     <section>
         <section>
-            <h2>留白（Padding）<br/>與<br/>邊距（Margin）</h2>
+            <h2>留白（Padding）<br/>與<br/>邊界（Margin）</h2>
         </section>
         <section>
-            <h3>留白（Padding）</h3>
+            <h3>留白與邊界</h3>
             <p>
-                <strong>留白在內</strong>
+                <strong>留白在內、邊界在外</strong>
             </p>
             <div class="fragment" data-fragment-index="1"><table>
                 <tr>
@@ -987,22 +976,9 @@ a {
                     <td>內部的留白</td>
                     <td>各種長度值</td>
                 </tr>
-            </table></div>
-        </section>
-        <section>
-            <h3>邊距（Margin）</h3>
-            <p>
-                <strong>邊距在外</strong>
-            </p>
-            <div class="fragment" data-fragment-index="1"><table>
-                <tr>
-                    <th>屬性</th>
-                    <th>描述</th>
-                    <th>屬性值</th>
-                </tr>
                 <tr>
                     <td><code class="code">margin</code></td>
-                    <td>外部的邊距</td>
+                    <td>外部的邊界</td>
                     <td>各種長度值（可負數）</td>
                 </tr>
             </table></div>
@@ -1187,7 +1163,7 @@ a {
         <section>
             <p>
                 行內元素被限制在行裡面，<br />
-                <strong>上下的留白、邊距將會無效</strong>（行高不會改變）。
+                <strong>上下的留白、邊界將會無效</strong>（行高不會改變）。
             </p>
             <p>
                 行內區塊元素整塊會像行內元素一樣跟著內文排列，<br />
